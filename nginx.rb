@@ -10,18 +10,21 @@ class Nginx < FPM::Cookery::Recipe
 
   section 'System Environment/Daemons'
 
-  build_depends 'make', 'gcc', 'g++', 'libssl-dev', 'libxml2-dev', 'libxslt1-dev'
+  build_depends 'make', 'gcc', 'g++', 'libxml2-dev', 'libxslt1-dev'
 
   rel = `cat /etc/lsb-release | grep DISTRIB_CODENAME | cut -d= -f2`.chomp
   case rel
-  when 'lucid'
-    depends 'libssl0.9.8'
+  when 'trusty', 'xenial'
+    build_depends 'libssl-dev'
+    depends 'libssl1.0.0'
   else
+    build_depends 'libssl1.0-dev'
     depends 'libssl1.0.0'
   end
   depends 'libxml2', 'libxslt1.1'
 
   def build
+    patch('/package_source/vendor/nginx/patches/patch-gcc7.diff', level=1)
     configure \
       '--with-http_stub_status_module',
       '--with-http_ssl_module',

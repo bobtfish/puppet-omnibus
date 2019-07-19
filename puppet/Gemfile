@@ -11,7 +11,6 @@ gem 'rack',                   '1.6.4'
 gem 'unicorn',                '4.9.0'
 
 gem 'msgpack',                '0.6.2' # Apache v2
-gem 'jemalloc'
 
 # Puppet tools section
 gem 'puppet-syntax',          '2.0.0'
@@ -26,3 +25,9 @@ gem 'retries',                '0.0.5', :require => false
 
 # Vault
 gem 'hiera-vault',            '0.2.1'
+
+# ipaddress required for puppet-network
+gem 'ipaddress',              '0.8.3'
+
+# CFPropertyList gem for macos packages (munki)
+gem 'CFPropertyList',         '2.2.7'

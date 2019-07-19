@@ -17,4 +17,4 @@ export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=${RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FA
 
 export PATH="/opt/puppet-omnibus/embedded/bin:$PATH"
 
-exec /opt/puppet-omnibus/embedded/bin/je /opt/puppet-omnibus/embedded/bin/puppet "$@"
+exec /opt/puppet-omnibus/embedded/bin/puppet "$@"

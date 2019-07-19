@@ -10,7 +10,7 @@ fi
 
 if [ "$PUPPET_VERSION" == "" ];then
   echo "PUPPET_VERSION environment variable must be set"
-  exit1
+  exit 1
 fi
 echo "Going for bundle install and build:"
 
@@ -30,7 +30,6 @@ mv pkg/puppet-$PUPPET_VERSION.gem /package/vendor/
 
 # build omnibus package
 cd /package
-gem install /package/vendor/bundler-1.12.5.gem
 gem install /package/vendor/puppet-$PUPPET_VERSION.gem
 bundle install --local --path /tmp
 FPM_CACHE_DIR=/package/vendor bundle exec fpm-cook clean

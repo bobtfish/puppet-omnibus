@@ -9,7 +9,7 @@ class PuppetGem < FPM::Cookery::Recipe
   source "nothing", :with => :noop
 
   build_depends 'pkg-config', 'libxml2-dev', 'libxslt1-dev'
-  depends 'libxml2', 'libxslt1.1'
+  depends 'libxml2', 'libxslt1.1', 'virt-what'
 
   def build
     ENV['PKG_CONFIG_PATH'] = "#{destdir}/lib/pkgconfig"

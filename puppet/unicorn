@@ -15,7 +15,6 @@ export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=${RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FA
 export PATH="/opt/puppet-omnibus/embedded/bin:$PATH"
 
 exec nice -n +10 setuidgid puppet \
-     /opt/puppet-omnibus/embedded/bin/je \
      /opt/puppet-omnibus/embedded/bin/unicorn \
      -c /opt/puppet-omnibus/etc/unicorn.conf \
      -E deployment "$@"

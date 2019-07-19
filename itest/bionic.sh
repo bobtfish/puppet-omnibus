@@ -15,7 +15,7 @@ if [ -e /opt/puppet-omnibus ]; then
   exit 1
 fi
 
-apt-get install virt-what libgmp10 libxml2 libxslt1.1 libssl1.0.0 --yes --force-yes
+apt-get install virt-what libgmp10 libxml2 libxslt1.1 libssl1.0.0 libssl1.0-dev --yes --force-yes
 if dpkg -i $packages_to_install; then
   echo "Looks like it installed correctly"
 else
